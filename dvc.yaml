@@ -1,0 +1,16 @@
+stages:
+  train:
+    cmd: python dvc_train.py
+    deps:
+      - dvc_train.py
+      - data/iris.csv
+      - params.yaml
+    params:
+      - train
+      - models
+    outs:
+      - pipeline_models/random_forest_v1.pkl
+      - pipeline_models/random_forest_v2.pkl
+    metrics:
+      - metrics_v1.json
+      - metrics_v2.json
